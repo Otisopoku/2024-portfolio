@@ -1,0 +1,70 @@
+.app__navbar{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(4px); // this enables for us to see a blur background below the navbar when we scoll down the page
+    -webkit-backdrop-filter: blur(4px); // because it's not available on every browser
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    position: fixed;
+    z-index: 2;
+
+    img{
+        width: 90px;
+        height: 20px;
+
+        @media screen and (min-width: 2000px) { // displays the logo to be wider on bigger screens
+            width: 180px;
+            height: 40px;
+        }
+    }
+}
+
+.app__navbar-links{
+    flex: 1; // makes the div takes the rest of the space that the logo doesn't take. More like they share so that every element can fill the available space
+    display:flex;
+    justify-content: center;
+    align-items: center; 
+    list-style: none;
+
+    li{
+        margin:0 1rem;
+        cursor:pointer; // changes the cursor to that of a pointer to make the user know that it is clickable
+        flex-direction: column;
+
+        div{
+            width:5px; 
+            height: 5px; 
+            background: transparent;
+            border-radius: 50%;
+            margin-bottom:5px; 
+
+        }
+
+        a {
+            color: var(--grey-color);
+            text-decoration: none; 
+            flex-direction: column; 
+
+            text-transform: uppercase; 
+            font-weight: 500;
+            transition: all 0.3s ease-in-out; // when the user hovers on the item, the transition makes it able to change to a new color specified in the hover property of the item
+            // the ease makes the transition smooth
+
+
+            &:hover{
+                color: var(--secondary-color);
+            }
+        }
+
+        &:hover {
+            div{
+                background: var(--secondary-color);
+            }
+        }
+
+    }
+}
+
